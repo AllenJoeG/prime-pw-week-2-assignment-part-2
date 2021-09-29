@@ -127,11 +127,12 @@ if (number >= 2) {
 
 
 
-//4. We start with three variables -- colorOne is set to 'blue' and
-// colorTwo is set to 'red', and mix is set to true. We check if mix is true
-// -- it is, so we set colorOne and colorTwo to 'purple'
-
+//4. We start with three variables -- colorOne's value is set to string 'blue' and
+// colorTwo's value is set to string 'red', and mix's value is set to boolean true.
+// PROBLEM: As written, the conditional would only set colorOne's value to 'purple'
 // PROBLEM: Only colorOne is reassigned a value. Need also to reassign colorTwo
+// After fixing we check if mix is true.
+//    It is: the conditional sets colorOne and colorTwo values to 'purple'
 
 /*
 let colorOne = 'red';
@@ -144,33 +145,41 @@ if (mix === true) {
 }
 */
 
-//5. We start with two variables -- temp is set to 40 and time is set to 4.
-// We check if temp is higher than 39 and if time is greater or equal to  4
-// -- they are so we console.log 'throw away the food!'
+//5. We start with two variables -- temp is set to 40 and time is set constant to 4.
+// Before fixing the conditional checks if temp is higher than 39 OR
+//    if time is greater or equal to  4
+// Both values are true, so the condition is met and the console logs 'throw away the food!'
 //---- PROBLEM: The logical operator here is an OR, instead of an AND.
-// ---     Also worth noting that time is set constant at 4, so it will always check as >= 4.
+//      Which means that even if the temp was within threshold, the time alone would prompt the toss.
+// ASSUMPTION: I am assuming that the time safety is meant to be constant based on food science or whatever.
+//      Were this to need to chance depending on the food/conditions, we could declare 'time' with 'let'.
 /*
 let temp = 40;
 const time = 4;
-//FIX change to 'let time = 4;' in case we need that to be a value that is mutable.
+// ASSUMPTION FIX change to 'let time = 4;' in case we need that to be a value that is mutable.
 
 if (temp > 39 || time >= 4) {
-//FIX 'if (temp > 39 && time >=4) {' will ensure BOTH conditions are met before tossing the food.
+//FIX Above Line: 'if (temp > 39 && time >=4) {' will ensure BOTH conditions are met before tossing the food.
   console.log('throw away the food!');
 }
 */
 
 //6. We start with two variables -- age is set to 21 and minAge is set to 21.
-// We check if age is greater than or equal to minAge
-// -- it is, so we console.log 'enter'.
-// PROBLEM: The conditional statement in the if block is set to less-than-equal, rather than greater/equal
+// Before fixing, the conditional checks if var 'age' is less than or equal to var 'minAge'
+// Before fixing, the console would log 'no entry'. Which would bar 21 y/o from entering!
+// PROBLEM: The conditional statement in the if block is set to less-than-equal,
+//      which would result barring people whose age IS the minAge requirement.
+// After fixing, the conditional checks whether the value of var 'minAge' is greater than var 'age'.
+// Alternatively, the fix could be to check whether the value of var 'age' is less than var 'minAge'
+// With the fix implemented, console will log 'enter'.
+// 21 y/o can now get their dance on, or whatever they're doing on the other side of this age check.
 
 /*
 let age = 21;
 const minAge = 21;
 
-//FIX 'if (minAge >= age) {'
 if(minAge <= age) {
+//FIX Replace Above Line: if (minAge > age) {
   console.log('no entry');
 } else {
   console.log('enter');
